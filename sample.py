@@ -24,3 +24,19 @@ with autocast(DEVICE):
         image.save(save_path)
         print("saved : ", save_path)
 
+
+# Read the License and agree with its terms
+# https://huggingface.co/CompVis/stable-diffusion-v1-4
+#
+# If you not have YOUR_TOKEN, then create your account.
+# https://huggingface.co/join
+#
+# Create YOUR_TOKEN on this site
+# https://huggingface.co/settings/tokens
+# 
+# Create `.env` referring to `sample.env`
+# Create `$env:USERPROFILE\Documents\stable-diffusion`
+# pip install ftfy
+# pip install python-dotenv
+# 
+# Finally, run `python ./sample.py`
