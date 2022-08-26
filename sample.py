@@ -16,7 +16,7 @@ pipe.to(DEVICE)
 with autocast(DEVICE):
     prompt = "kawaii cat"
     while prompt != "q": 
-        prompt = input("set prompt [36m>[m ")
+        prompt = input("set prompt (input \"q\" to exit) [36m>[m ")
         if prompt == "q":
             break
         image = pipe(prompt, guidance_scale=7.5)["sample"][0]
