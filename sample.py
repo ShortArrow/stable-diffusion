@@ -28,8 +28,8 @@ def make_save_path(prompt: str, count: int) -> str:
 def get_save_path(prompt: str, count: int) -> str:
     buf = make_save_path(prompt, count)
     # make file name length shorten to os can handle
-    if len(buf) > get_max_path_length():
-        num = (len(prompt)-(len(buf)-get_max_path_length()))
+    if len(repr(buf)) > get_max_path_length():
+        num = (len(prompt)-(len(repr(buf))-get_max_path_length()))
         prompt = prompt[0:num]
         buf = make_save_path(prompt, count)
     return buf
@@ -60,6 +60,7 @@ with autocast(DEVICE):
                 count += 1
             else:
                 image.save(save_path)
+                print("prompt : {", prompt, "}")
                 print("saved : ", save_path)
                 break
 
