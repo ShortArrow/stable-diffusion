@@ -14,16 +14,40 @@ MAX_SAME_PROMPT = 100
 pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, revision="fp16", torch_dtype=torch.float16, use_auth_token=YOUR_TOKEN)
 pipe.to(DEVICE)
 
-def get_save_path(prompt, count):
-    if len(prompt) > 260:
-        prompt = prompt[0:250]
-    return os.environ.get("USERPROFILE") + "\\Documents\\stable-diffusion\\" + prompt + "_" + str(count).zfill(3) + ".png"
+def ANSIEC(num: int) -> str:
+    return "[{code}m".format(code = num)
+
+def get_max_path_length() -> str:
+    return 260
+
+def make_save_path(prompt: str, count: int) -> str:
+    return (os.environ.get("USERPROFILE")
+            + "\\Documents\\stable-diffusion\\"
+            + prompt + "_" + str(count).zfill(3) + ".png")
+
+def get_save_path(prompt: str, count: int) -> str:
+    buf = make_save_path(prompt, count)
+    # make file name length shorten to os can handle
+    if len(buf) > get_max_path_length()):
+        num = (len(prompt)-(len(buf)-get_max_path_length()))
+        prompt = prompt[0:num]
+        buf = make_save_path(prompt, count)
+    return buf
+
+def get_exit_command() -> str:
+    return "q"
+
+def get_input_prompt() -> str:
+    return ("set prompt (input \""
+            + get_exit_command()
+            + "\" to exit) "
+            + ANSIEC(36) + ">" + ANSIEC(0))
 
 with autocast(DEVICE):
     prompt = "kawaii cat"
-    while prompt != "q": 
-        buf = input("set prompt (input \"q\" to exit) [36m>[m ")
-        if buf == "q":
+    while prompt != get_exit_command(): 
+        buf = input(get_input_prompt())
+        if buf == get_exit_command():
             break
         if buf != "":
            prompt = buf
