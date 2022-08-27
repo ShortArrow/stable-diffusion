@@ -15,6 +15,8 @@ pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, revision="fp16", torch_
 pipe.to(DEVICE)
 
 def get_save_path(prompt, count):
+    if len(prompt) > 260:
+        prompt = prompt[0:250]
     return os.environ.get("USERPROFILE") + "\\Documents\\stable-diffusion\\" + prompt + "_" + str(count).zfill(3) + ".png"
 
 with autocast(DEVICE):
