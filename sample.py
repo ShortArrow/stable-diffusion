@@ -84,3 +84,5 @@ with autocast(DEVICE):
 #
 # prompt making like this.
 # https://gchq.github.io/CyberChef/#recipe=Find_/_Replace(%7B'option':'Regex','string':'%5C%5Cn'%7D,',%20',true,false,true,false)&input=YXR0cmFjdGl2ZSBmZW1hbGUKd2VsbC1ncm9vbWVkIGZhY2UKaGlnaGx5IGRldGFpbGVkIGZhY2UKZXhwcmVzc2l2ZSBkZXRhaWxlZCBmYWNlIGFuZCBleWVzCmV4dHJlbWVseSBoaWdoIHF1YWxpdHkgYW5pbWUgaW4gSmFwYW4KZWxlZ2FudCB5b3VuZyBmZW1hbGUKY3V0ZSBmZW1hbGUKcHJldHR5IGZlbWFsZQpsb3ZlbHkgZmVtYWxlCmluIGNpdHlzY2FwZQpoZXIgaXMgc3RhcmluZyBhdCBtZSB3aXRoIGV5ZQp3cml0dGVuIGJ5IGphcGFuZXNlCmZ1bGwgYm9keQptYWtvdG9zaGlua2FpCmtvbm9zdWJhCnRyYWNlcgpqYXBhbmVzZSBhbmltZQ
+# keyword are pick from this
+# https://lexica.art/
